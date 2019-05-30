@@ -1,6 +1,6 @@
 {
   "name": "version-code",
-  "version": "v1.0.0-hotfix",
+  "version": "v1.0.1-hotfix",
   "description": "",
   "main": "index.js",
   "scripts": {

@@ -1,5 +1,3 @@
-def String version = "2.1.4"
-
 def sh(String command) {
     println command
     def sout = new StringBuilder(), serr = new StringBuilder()
@@ -15,10 +13,12 @@ def getVersionFromPackageJson() {
 }
 
 def updatePackageVersion(String version, Boolean isDevelop = true) {
+
     def String RELEASE_CLIENT_EXTENSION = "-rc"
+
     if (isDevelop) {
         if (version.contains(RELEASE_CLIENT_EXTENSION)) {
-            println "Remove the release and commit"
+            println "Remove the release client extension"
             String newVersion = version.replace(RELEASE_CLIENT_EXTENSION,"")
             sh "yarn.cmd version --no-git-tag-version --new-version ${newVersion}"
             sh "git add ."
@@ -42,17 +42,10 @@ def updatePackageVersion(String version, Boolean isDevelop = true) {
         sh "yarn.cmd version --no-git-tag-version --new-version patch"
     }
 
-    // Get the updated version, append -release to it and tag it 
+    // Get the updated version, append -rc to it and tag it 
     String updatedVersion = getVersionFromPackageJson()
     sh "yarn.cmd version --new-version ${updatedVersion}${RELEASE_CLIENT_EXTENSION}"
 }
 
 String currentVersion = getVersionFromPackageJson()
 updatePackageVersion(currentVersion, true)
-/*def getUpdatedVersion(String current) {
-        
-}*/
-
-/*def f = getVersionFromPackageJson()
-s = f("hello", false)
-print s*/

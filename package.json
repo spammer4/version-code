@@ -1,6 +1,6 @@
 {
   "name": "version-code",
-  "version": "1.4.1-rc",
+  "version": "1.4.2-rc",
   "description": "",
   "main": "index.js",
   "scripts": {

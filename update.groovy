@@ -1,6 +1,7 @@
 def String version = "2.1.4"
 
 def sh(String command) {
+    println command
     def sout = new StringBuilder(), serr = new StringBuilder()
     def proc = command.execute()
     proc.consumeProcessOutput(sout, serr)
@@ -15,7 +16,7 @@ def updatePackageVersion(String version, Boolean isDevelop = true) {
             String newVersion = version.replace("-release","")
             sh "yarn.cmd version --no-git-tag-version --new-version ${newVersion}"
             sh "git add ."
-            sh "git commit -m 'Removed -release from tag'"
+            sh "git commit -m 'Removed -release from develop version ${version}'"
             sh "git push"
         }
         

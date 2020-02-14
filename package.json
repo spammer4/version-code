@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/spammer4/version-code#readme",
   "devDependencies": {
-    "yarn": "^1.16.0"
+    "yarn": "^1.22.0"
   }
 }
